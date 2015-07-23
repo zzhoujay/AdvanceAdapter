@@ -6,6 +6,10 @@
 * 采用的是包裹原本的Adapter的方式，无需修改原本Adapter
 * 同步子Adapter的数据改变事件
 
+##注意：在子Adapter中ViewHolder中调用getLayoutPosition()和getAdapterPosition()时会包含外层已添加的Header和Footer
+
+> 如果已经添加了一个Header，那么在子Adapter中调用getAdapterPosition()方法时返回的是该item在子Adapter中的位置+1
+
 ###使用方法
 ```java
     NormalAdapter normalAdapter = new NormalAdapter(msgs);
