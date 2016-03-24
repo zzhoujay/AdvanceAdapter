@@ -2,53 +2,60 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\zzhou\Documents\GitHub\AdvanceAdapter\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\22.2.0\jars\classes.jar"
+        jar="/home/zhou/github/AdvanceAdapter/simple/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/jars/classes.jar"
         jumboMode="false"
-        revision="22.0.1"
-        sha1="5b37cf49773f7f17aca9830efd3053b0cac56728">
-        <dex dex="C:\Users\zzhou\Documents\GitHub\AdvanceAdapter\app\build\intermediates\pre-dexed\debug\classes-cb5c4456157c9d2db06cfcdcc8c14e2afdc99c29.jar" />
+        revision="23.0.2"
+        sha1="e4d0cbb0b999604b349062f0214a0a228a7fd151">
+        <dex dex="/home/zhou/github/AdvanceAdapter/simple/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-23.2.1_eb79907532c0831f0ea16e2b9700c117ae7e6bbb.jar" />
     </item>
     <item
-        jar="E:\android_studio\sdk\extras\android\m2repository\com\android\support\support-annotations\22.2.0\support-annotations-22.2.0.jar"
+        jar="/home/zhou/github/AdvanceAdapter/simple/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.2.1/jars/classes.jar"
         jumboMode="false"
-        revision="22.0.1"
-        sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
-        <dex dex="C:\Users\zzhou\Documents\GitHub\AdvanceAdapter\app\build\intermediates\pre-dexed\debug\support-annotations-22.2.0-1c992051a57ec79830c1354dd1be80791e886d21.jar" />
+        revision="23.0.2"
+        sha1="e3885783ff8926ed9e2fdcd16816c2e1e73e7aee">
+        <dex dex="/home/zhou/github/AdvanceAdapter/simple/build/intermediates/pre-dexed/debug/com.android.support-recyclerview-v7-23.2.1_d456a04df669bbefb367f669fe32d1d0819825ca.jar" />
     </item>
     <item
-        jar="C:\Users\zzhou\Documents\GitHub\AdvanceAdapter\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\22.2.0\jars\classes.jar"
+        jar="/home/zhou/github/AdvanceAdapter/simple/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.2.1/jars/classes.jar"
         jumboMode="false"
-        revision="22.0.1"
-        sha1="97f7e239e86ef994de894818fdd8a71d2e89d6aa">
-        <dex dex="C:\Users\zzhou\Documents\GitHub\AdvanceAdapter\app\build\intermediates\pre-dexed\debug\classes-308b5489e8a9f65a586e5201fa1e53860c326900.jar" />
+        revision="23.0.2"
+        sha1="3469cb457f10f74c28cbc05f069b6c894f6cbdd0">
+        <dex dex="/home/zhou/github/AdvanceAdapter/simple/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-23.2.1_8414cb7abb70160efd95a5eb70d564eadffae5fd.jar" />
     </item>
     <item
-        jar="C:\Users\zzhou\Documents\GitHub\AdvanceAdapter\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\libs\internal_impl-22.2.0.jar"
+        jar="/home/zhou/github/AdvanceAdapter/simple/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.1/jars/classes.jar"
         jumboMode="false"
-        revision="22.0.1"
-        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
-        <dex dex="C:\Users\zzhou\Documents\GitHub\AdvanceAdapter\app\build\intermediates\pre-dexed\debug\internal_impl-22.2.0-91a502d8d042f569d9b2d444c3db320e22202ad5.jar" />
+        revision="23.0.2"
+        sha1="3be474b1b21b31cf2fa93fe6bd641ae108d96452">
+        <dex dex="/home/zhou/github/AdvanceAdapter/simple/build/intermediates/pre-dexed/debug/com.android.support-support-v4-23.2.1_a9fa69ab003826a7a418dca2e1f339034df26fae.jar" />
     </item>
     <item
-        jar="C:\Users\zzhou\Documents\GitHub\AdvanceAdapter\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.0\jars\classes.jar"
+        jar="/home/zhou/github/AdvanceAdapter/simple/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.1/jars/libs/internal_impl-23.2.1.jar"
         jumboMode="false"
-        revision="22.0.1"
-        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
-        <dex dex="C:\Users\zzhou\Documents\GitHub\AdvanceAdapter\app\build\intermediates\pre-dexed\debug\classes-eac76c02c0627753461275db5e55f63e2eebf993.jar" />
+        revision="23.0.2"
+        sha1="607a3d0b8013b4ccbfeb0b7cb293351994e021fb">
+        <dex dex="/home/zhou/github/AdvanceAdapter/simple/build/intermediates/pre-dexed/debug/internal_impl-23.2.1_4916c6caf317455ffc20bed3bd1bdd6c99640860.jar" />
     </item>
     <item
-        jar="C:\Users\zzhou\Documents\GitHub\AdvanceAdapter\app\build\intermediates\exploded-aar\zhou.widget\advanceadapter\1.0\jars\classes.jar"
+        jar="/home/zhou/github/AdvanceAdapter/simple/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.2.1/jars/classes.jar"
         jumboMode="false"
-        revision="22.0.1"
-        sha1="4842740637b2f9668df3ce30cb0cf6e8d5883e65">
-        <dex dex="C:\Users\zzhou\Documents\GitHub\AdvanceAdapter\app\build\intermediates\pre-dexed\debug\classes-f2f916cd74010aca66b2848b51e5aa48d6cd54c7.jar" />
+        revision="23.0.2"
+        sha1="673d77a5bbddd766037f088e775df525c46407f0">
+        <dex dex="/home/zhou/github/AdvanceAdapter/simple/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-23.2.1_2e78af2de68ab9e56a06424258b74058fe132462.jar" />
     </item>
     <item
-        jar="C:\Users\zzhou\Documents\GitHub\AdvanceAdapter\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\classes.jar"
+        jar="/home/zhou/github/AdvanceAdapter/simple/build/intermediates/exploded-aar/AdvanceAdapter/advanceadapter/unspecified/jars/classes.jar"
         jumboMode="false"
-        revision="22.0.1"
-        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
-        <dex dex="C:\Users\zzhou\Documents\GitHub\AdvanceAdapter\app\build\intermediates\pre-dexed\debug\classes-9bcb57dd5020bf697c2eda153e69837283f7cefb.jar" />
+        revision="23.0.2"
+        sha1="962da0624a80c6285404298cb80b85a46db919fa">
+        <dex dex="/home/zhou/github/AdvanceAdapter/simple/build/intermediates/pre-dexed/debug/AdvanceAdapter-advanceadapter-unspecified_e97356f82b4254496a30a93904f8c119003fa4fa.jar" />
+    </item>
+    <item
+        jar="/home/zhou/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/23.2.1/support-annotations-23.2.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="ccb693bc0774fcb637246f7360de25b4af7df318">
+        <dex dex="/home/zhou/github/AdvanceAdapter/simple/build/intermediates/pre-dexed/debug/support-annotations-23.2.1_53cd049009e6b70daeeac042cade454be12a8769.jar" />
     </item>
 
 </items>

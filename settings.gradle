@@ -1,1 +1,1 @@
-include ':app', ':advanceadapter'
+include ':advanceadapter', ':simple'
