@@ -90,13 +90,19 @@ public abstract class AdvanceAdapter extends RecyclerView.Adapter<RecyclerView.V
      */
     public abstract void onFooterBindViewHolder(RecyclerView.ViewHolder holder, int position);
 
+    protected int childItemCount() {
+        return childAdapter == null ? 0 : childAdapter.getItemCount();
+    }
+
+    protected RecyclerView.Adapter<RecyclerView.ViewHolder> childAdapter() {
+        return childAdapter;
+    }
+
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         RecyclerView.ViewHolder holder;
         if (viewType >= TYPE_HEADER_START) {
-            Log.i("viewType", viewType + "");
-            Log.i("offset", (viewType - TYPE_HEADER_START) + "");
             holder = onHeaderCreateViewHolder(parent, viewType - TYPE_HEADER_START);
         } else if (viewType <= TYPE_FOOTER_START + MAX_FOOTER_SIZE) {
             holder = onFooterCreateViewHolder(parent, viewType - TYPE_FOOTER_START);
@@ -131,7 +137,7 @@ public abstract class AdvanceAdapter extends RecyclerView.Adapter<RecyclerView.V
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position, List<Object> payloads) {
         if (position >= headerCount() && position < headerCount() + childItemCount()) {
-            childAdapter.onBindViewHolder(holder, position, payloads);
+            childAdapter.onBindViewHolder(holder, position - headerCount(), payloads);
         } else {
             super.onBindViewHolder(holder, position, payloads);
         }
@@ -213,9 +219,6 @@ public abstract class AdvanceAdapter extends RecyclerView.Adapter<RecyclerView.V
         childAdapter.onDetachedFromRecyclerView(recyclerView);
     }
 
-    protected int childItemCount() {
-        return childAdapter == null ? 0 : childAdapter.getItemCount();
-    }
 
     private void setStaggeredLayoutParams(RecyclerView.ViewHolder holder) {
         if (layoutManager instanceof StaggeredGridLayoutManager) {

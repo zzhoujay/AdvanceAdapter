@@ -64,7 +64,6 @@ public class DynamicAdapter extends AdvanceAdapter {
 
     @Override
     public RecyclerView.ViewHolder onHeaderCreateViewHolder(ViewGroup parent, int viewType) {
-        Log.i("viewType", viewType + "");
         return new Holder(headers.get(viewType));
     }
 

@@ -2,14 +2,11 @@ package com.zzhoujay.advanceadaptersimple;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
-import android.util.Log;
 import android.view.View;
 
 import com.zzhoujay.advanceadapter.DynamicAdapter;
-import com.zzhoujay.advanceadapter.SingleAdapter;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -20,8 +17,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
 
-        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, 2);
-//        RecyclerView.LayoutManager layoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+//        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, 2);
+        RecyclerView.LayoutManager layoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
 
         if (recyclerView != null) {
             recyclerView.setLayoutManager(layoutManager);
@@ -51,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
 //        singleAdapter.setHeader(header);
 //        singleAdapter.setFooter(footer);
 //        recyclerView.setAdapter(singleAdapter);
-
+//
         recyclerView.setAdapter(dynamicAdapter);
 
 //        recyclerView.post(new Runnable() {
