@@ -1,14 +1,16 @@
 # AdvanceAdapter
 
-> 可以添加Header和Footer的适配与RecyclerView的Adapter
+> 可以添加Header和Footer的Adapter
 
-* 可以添加多个Header和多个Footer
-* 采用的是包裹原本的Adapter的方式，无需修改原本Adapter
-* 同步子Adapter的数据改变事件
+* 低侵入性，采用装饰器的方式包裹正真的Adapter,无需修改原本Adapter
+* 支持`LinearLayoutManager`、`GridLayoutManager`、`StaggeredGridLayoutManager`
+* 可自定义Header和Footer的增加方式
 
-## 注意：在子Adapter中ViewHolder中调用getLayoutPosition()和getAdapterPosition()时会包含外层已添加的Header和Footer
+## 注意
 
-> 如果已经添加了一个Header，那么在子Adapter中的ViewHolder中调用getAdapterPosition()方法时返回的是该item在子Adapter中的位置+1，这时可以AdvanceAdapter的getHeaderSize方法获取头部的数量并减去，得到正确的位置
+1. 在子Adapter中ViewHolder中调用getLayoutPosition()和getAdapterPosition()时会包含外层已添加的Header和Footer
+
+2. 默认Header和Footer数量最大为100，且`ViewType`中的`Integer.MIN_VALUE`~`Integer.MIN_VALUE+100`、`Integer.MAX_VALUE-100`~`Integer.MAX_VALUE`均被占用
 
 ### 使用方法
 ```java
@@ -27,7 +29,7 @@
 
 ### gradle引用方法
 ```
-    compile 'zhou.widget:advanceadapter:1.0'
+    compile 'com.zzhoujay.advanceadapter:advanceadapter:1.0.1'
 ```
 
 ### 运行效果

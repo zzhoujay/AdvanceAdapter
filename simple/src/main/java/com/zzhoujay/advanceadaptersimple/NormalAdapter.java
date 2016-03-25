@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 /**
  * Created by zzhoujay on 2015/7/22 0022.
  */
@@ -13,13 +15,13 @@ public class NormalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
     private int size;
 
-    private int[] nums;
+    private ArrayList<Integer> nums;
 
     public NormalAdapter(int size) {
         this.size = size;
-        nums = new int[size];
+        nums = new ArrayList<>(size);
         for (int i = 0; i < size; i++) {
-            nums[i] = i;
+            nums.add(i);
         }
     }
 
@@ -43,15 +45,18 @@ public class NormalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         if (holder instanceof Holder) {
-            ViewGroup.LayoutParams layoutParams = ((Holder) holder).view.getLayoutParams();
-            layoutParams.height = (position % 5) * 30 + 200;
-            ((Holder) holder).view.setText("" + nums[position]);
+//            ViewGroup.LayoutParams layoutParams = ((Holder) holder).view.getLayoutParams();
+//            layoutParams.height = (position % 5) * 30 + 200;
+//            if(position>=getItemCount()){
+//                System.out.println("gg");
+//            }
+            ((Holder) holder).view.setText("" + nums.get(position));
         }
     }
 
     @Override
     public int getItemCount() {
-        return size;
+        return nums.size();
     }
 
     public static class Holder extends RecyclerView.ViewHolder {
@@ -85,8 +90,9 @@ public class NormalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     }
 
     public void setNum(int index) {
-        nums[index]++;
-        notifyItemChanged(index);
+//        nums.set(index, nums.get(index) + 1);
+        nums.remove(index);
+        notifyItemRemoved(index);
     }
 
     public interface Callback {

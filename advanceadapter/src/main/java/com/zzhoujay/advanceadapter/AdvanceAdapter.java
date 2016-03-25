@@ -3,6 +3,7 @@ package com.zzhoujay.advanceadapter;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.util.Log;
 import android.view.ViewGroup;
 
 import java.util.List;
@@ -24,6 +25,7 @@ public abstract class AdvanceAdapter extends RecyclerView.Adapter<RecyclerView.V
 
     /**
      * 适用于LinearLayoutManager
+     *
      * @param childAdapter 被包裹的adapter
      */
     public AdvanceAdapter(RecyclerView.Adapter<RecyclerView.ViewHolder> childAdapter) {
@@ -32,22 +34,15 @@ public abstract class AdvanceAdapter extends RecyclerView.Adapter<RecyclerView.V
 
     /**
      * 适用于GridLayoutManager和StaggeredGridLayoutManager
-     * @param childAdapter 被包裹的adapter
+     *
+     * @param childAdapter  被包裹的adapter
      * @param layoutManager recyclerView的layoutManager
      */
     public AdvanceAdapter(RecyclerView.Adapter<RecyclerView.ViewHolder> childAdapter, RecyclerView.LayoutManager layoutManager) {
         this.childAdapter = childAdapter;
         this.layoutManager = layoutManager;
         if (layoutManager instanceof GridLayoutManager) {
-            ((GridLayoutManager) layoutManager).setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
-                @Override
-                public int getSpanSize(int position) {
-                    if (position < headerCount() || position >= headerCount() + childItemCount())
-                        return ((GridLayoutManager) AdvanceAdapter.this.layoutManager).getSpanCount();
-                    else
-                        return 1;
-                }
-            });
+            ((GridLayoutManager) layoutManager).setSpanSizeLookup(new GridSpanSizeLookup(this, (GridLayoutManager) layoutManager));
         } else if (layoutManager instanceof StaggeredGridLayoutManager) {
             isStaggered = true;
         }
@@ -284,4 +279,23 @@ public abstract class AdvanceAdapter extends RecyclerView.Adapter<RecyclerView.V
             notifyItemRangeChanged(fromPosition + headerCount(), toPosition + itemCount + headerCount());
         }
     };
+
+    private static class GridSpanSizeLookup extends GridLayoutManager.SpanSizeLookup {
+
+        private AdvanceAdapter advanceAdapter;
+        private GridLayoutManager gridLayoutManager;
+
+        public GridSpanSizeLookup(AdvanceAdapter advanceAdapter, GridLayoutManager gridLayoutManager) {
+            this.advanceAdapter = advanceAdapter;
+            this.gridLayoutManager = gridLayoutManager;
+        }
+
+        @Override
+        public int getSpanSize(int position) {
+            if (position < advanceAdapter.headerCount() || position >= advanceAdapter.headerCount() + advanceAdapter.childItemCount())
+                return gridLayoutManager.getSpanCount();
+            else
+                return 1;
+        }
+    }
 }
