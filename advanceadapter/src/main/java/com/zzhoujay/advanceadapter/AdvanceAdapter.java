@@ -3,7 +3,6 @@ package com.zzhoujay.advanceadapter;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
-import android.util.Log;
 import android.view.ViewGroup;
 
 import java.util.List;

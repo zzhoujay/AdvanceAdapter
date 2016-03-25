@@ -2,22 +2,19 @@ package com.zzhoujay.advanceadaptersimple;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
 import com.zzhoujay.advanceadapter.DynamicAdapter;
-import com.zzhoujay.advanceadapter.SingleAdapter;
 
 
 public class MainActivity extends AppCompatActivity {
 
     DynamicAdapter dynamicAdapter;
-    SingleAdapter singleAdapter;
     View h;
 
     @Override
@@ -26,8 +23,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
 
-        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, 2);
-//        RecyclerView.LayoutManager layoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
 
         if (recyclerView != null) {
             recyclerView.setLayoutManager(layoutManager);
@@ -38,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
         final NormalAdapter normalAdapter = new NormalAdapter(20);
         dynamicAdapter = new DynamicAdapter(normalAdapter, layoutManager);
 
-        singleAdapter = new SingleAdapter(normalAdapter, layoutManager);
         normalAdapter.setCallback(new NormalAdapter.Callback() {
             @Override
             public void call(int index) {
@@ -54,19 +49,9 @@ public class MainActivity extends AppCompatActivity {
         dynamicAdapter.addHeaderView(header2);
         dynamicAdapter.addFooterView(footer);
         dynamicAdapter.addFooterView(footer2);
-//        singleAdapter.setHeaderView(header);
-//        singleAdapter.setFooterView(footer);
-
-//        recyclerView.setAdapter(singleAdapter);
 //
         recyclerView.setAdapter(dynamicAdapter);
 
-//        recyclerView.post(new Runnable() {
-//            @Override
-//            public void run() {
-//                dynamicAdapter.notifyDataSetChanged();
-//            }
-//        });
 
     }
 
