@@ -24,6 +24,13 @@
 
 2. 使用`AdvanceAdapter`的两个实现类：`DynamicAdapter`、`SingleAdapter`
 
+```
+// 包裹你的Adapter，若是GridLayoutManager或StaggeredGridLayoutManager需要传入layoutManager
+AdvanceAdapter advanceAdapter=new DynamicAdapter(normalAdapter,layoutManager);
+// 给你的RecyclerView设置advanceAdapter
+recyclerView.setAdapter(advanceAdapter);
+```
+
 ### gradle引用方法
 ```
 repositories {
