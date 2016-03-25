@@ -10,52 +10,79 @@ import android.view.ViewGroup;
  */
 public class SingleAdapter extends AdvanceAdapter {
 
-    private View header, footer;
+    private View headerView, footerView;
 
+    /**
+     * 适用于LinearLayoutManager
+     * @param childAdapter 被包裹的adapter
+     */
     public SingleAdapter(RecyclerView.Adapter<RecyclerView.ViewHolder> childAdapter) {
         super(childAdapter);
     }
 
+    /**
+     * 适用于GridLayoutManager和StaggeredGridLayoutManager
+     * @param childAdapter 被包裹的adapter
+     * @param layoutManager recyclerView的layoutManager
+     */
     public SingleAdapter(RecyclerView.Adapter<RecyclerView.ViewHolder> childAdapter, RecyclerView.LayoutManager layoutManager) {
         super(childAdapter, layoutManager);
     }
 
-    public View getHeader() {
-        return header;
+    public View getHeaderView() {
+        return headerView;
     }
 
-    public void setHeader(View header) {
-        this.header = header;
-        notifyItemChanged(0);
+    public void setHeaderView(View headerView) {
+        if (this.headerView != null) {
+            this.headerView = headerView;
+            if (headerView == null) {
+                notifyItemRemoved(0);
+            } else {
+                notifyItemChanged(0);
+            }
+        } else {
+            this.headerView = headerView;
+            notifyItemInserted(0);
+        }
     }
 
-    public View getFooter() {
-        return footer;
+    public View getFooterView() {
+        return footerView;
     }
 
-    public void setFooter(View footer) {
-        this.footer = footer;
-        notifyItemChanged(getItemCount() - 1);
+    public void setFooterView(View footerView) {
+        if (this.footerView != null) {
+            this.footerView = footerView;
+            if (footerView == null) {
+                notifyItemRemoved(getItemCount());
+            } else {
+                notifyItemChanged(getItemCount() - 1);
+            }
+        } else {
+            this.footerView = footerView;
+            notifyItemInserted(getItemCount() - 1);
+        }
     }
 
     @Override
     public int headerCount() {
-        return 1;
+        return headerView == null ? 0 : 1;
     }
 
     @Override
     public int footerCount() {
-        return 1;
+        return footerView == null ? 0 : 1;
     }
 
     @Override
     public RecyclerView.ViewHolder onHeaderCreateViewHolder(ViewGroup parent, int viewType) {
-        return new Holder(header);
+        return new Holder(headerView);
     }
 
     @Override
     public RecyclerView.ViewHolder onFooterCreateViewHolder(ViewGroup parent, int viewType) {
-        return new Holder(footer);
+        return new Holder(footerView);
     }
 
     @Override

@@ -3,7 +3,6 @@ package com.zzhoujay.advanceadapter;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
-import android.util.Log;
 import android.view.ViewGroup;
 
 import java.util.List;
@@ -21,11 +20,21 @@ public abstract class AdvanceAdapter extends RecyclerView.Adapter<RecyclerView.V
 
     private RecyclerView.Adapter<RecyclerView.ViewHolder> childAdapter;
     private RecyclerView.LayoutManager layoutManager;
+    private boolean isStaggered;
 
+    /**
+     * 适用于LinearLayoutManager
+     * @param childAdapter 被包裹的adapter
+     */
     public AdvanceAdapter(RecyclerView.Adapter<RecyclerView.ViewHolder> childAdapter) {
         this(childAdapter, null);
     }
 
+    /**
+     * 适用于GridLayoutManager和StaggeredGridLayoutManager
+     * @param childAdapter 被包裹的adapter
+     * @param layoutManager recyclerView的layoutManager
+     */
     public AdvanceAdapter(RecyclerView.Adapter<RecyclerView.ViewHolder> childAdapter, RecyclerView.LayoutManager layoutManager) {
         this.childAdapter = childAdapter;
         this.layoutManager = layoutManager;
@@ -39,6 +48,8 @@ public abstract class AdvanceAdapter extends RecyclerView.Adapter<RecyclerView.V
                         return 1;
                 }
             });
+        } else if (layoutManager instanceof StaggeredGridLayoutManager) {
+            isStaggered = true;
         }
     }
 
@@ -70,7 +81,7 @@ public abstract class AdvanceAdapter extends RecyclerView.Adapter<RecyclerView.V
      *
      * @param parent   parent
      * @param viewType TYPE_FOOTER_START~Integer.MIN_VALUE+MAX_FOOTER_SIZE,代表Footer的顺序
-     * @return
+     * @return holder
      */
     public abstract RecyclerView.ViewHolder onFooterCreateViewHolder(ViewGroup parent, int viewType);
 
@@ -221,7 +232,7 @@ public abstract class AdvanceAdapter extends RecyclerView.Adapter<RecyclerView.V
 
 
     private void setStaggeredLayoutParams(RecyclerView.ViewHolder holder) {
-        if (layoutManager instanceof StaggeredGridLayoutManager) {
+        if (isStaggered) {
             ViewGroup.LayoutParams layoutParams = holder.itemView.getLayoutParams();
             if (layoutParams == null) {
                 // 解决header或footer在没有layoutParam时显示不正确的情况

@@ -15,11 +15,20 @@ public class DynamicAdapter extends AdvanceAdapter {
 
     private ArrayList<View> headers, footers;
 
+    /**
+     * 适用于LinearLayoutManager
+     * @param childAdapter 被包裹的adapter
+     */
     public DynamicAdapter(RecyclerView.Adapter<RecyclerView.ViewHolder> childAdapter) {
         super(childAdapter);
         init();
     }
 
+    /**
+     * 适用于GridLayoutManager和StaggeredGridLayoutManager
+     * @param childAdapter 被包裹的adapter
+     * @param layoutManager recyclerView的layoutManager
+     */
     public DynamicAdapter(RecyclerView.Adapter<RecyclerView.ViewHolder> childAdapter, RecyclerView.LayoutManager layoutManager) {
         super(childAdapter, layoutManager);
         init();
